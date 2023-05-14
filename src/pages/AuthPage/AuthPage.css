@@ -1,0 +1,36 @@
+.auth-page {
+    display: flex;
+    height: 30vh;
+}
+
+.left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left h3 {
+    margin-top: 4vmin;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.logo {
+    align-items: center;
+    background-color: var(--orange);
+    border: 0.6vmin solid var(--tan-2);
+    border-radius: 50%;
+    color: var(--tan-1);
+    display: flex;
+    flex-direction: column;
+    font-size: 2.7vmin;
+    height: 12vmin;
+    justify-content: center;
+    width: 12vmin;
+}
+
+.logo button {
+    border: 0px;
+}
