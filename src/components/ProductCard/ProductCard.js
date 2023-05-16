@@ -1,5 +1,11 @@
 import React from "react";
-import { Card, CardContent, Typography, CardMedia } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Typography,
+  CardMedia,
+  Button,
+} from "@mui/material";
 import { styled } from "@mui/system";
 
 const StyledCard = styled(Card)({
@@ -22,6 +28,7 @@ function ProductCard({ product }) {
           {product.description}
         </Typography>
         <Typography variant="body1">{product.price}</Typography>
+        <Button variant="outlined">Add To Cart</Button>
       </CardContent>
     </StyledCard>
   );
