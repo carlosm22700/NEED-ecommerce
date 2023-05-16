@@ -1,15 +1,29 @@
 import React from "react";
-import "./ProductCard.css";
+import { Card, CardContent, Typography, CardMedia } from "@mui/material";
+import { styled } from "@mui/system";
+
+const StyledCard = styled(Card)({
+  maxWidth: 345,
+});
+
+const StyledCardMedia = styled(CardMedia)({
+  height: 200,
+});
 
 function ProductCard({ product }) {
   return (
-    <div className="product-card">
-      <h2>{product.title}</h2>
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      <img src={product.thumbnail} alt={product.title} />
-      {/* Add your "Add to cart" button here */}
-    </div>
+    <StyledCard>
+      <StyledCardMedia image={product.thumbnail} title={product.title} />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {product.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {product.description}
+        </Typography>
+        <Typography variant="body1">{product.price}</Typography>
+      </CardContent>
+    </StyledCard>
   );
 }
 
