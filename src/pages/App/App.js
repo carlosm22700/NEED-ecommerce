@@ -39,10 +39,6 @@ function App() {
               path="/cart"
               element={<CartPage cart={cart} removeFromCart={removeFromCart} />}
             />
-            <Route
-              path="/cart"
-              element={<CartPage cart={cart} removeFromCart={removeFromCart} />}
-            />
           </Routes>
         </>
       ) : (

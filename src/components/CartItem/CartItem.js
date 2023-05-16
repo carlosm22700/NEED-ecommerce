@@ -17,7 +17,7 @@ function CartItem({ product, removeFromCart }) {
         <Typography color="text.secondary">${product.price}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => removeFromCart(product)}>
+        <Button size="small" onClick={() => removeFromCart(product.id)}>
           Remove
         </Button>
       </CardActions>
