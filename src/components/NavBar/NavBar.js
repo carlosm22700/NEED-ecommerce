@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Button from "@mui/material/Button";
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -11,9 +13,15 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/orders">Order History</Link>
+      <Link to="/cart">
+        <Button>
+          <ShoppingCartIcon /> Cart
+        </Button>
+      </Link>
+      {/* <Link to="/orders">Order History</Link> */}
       &nbsp; | &nbsp;
       <Link to="/orders/shop">Shop</Link>
+      &nbsp; | &nbsp;
       {user && <span>&nbsp;Welcome, {user.name}</span>}
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>
