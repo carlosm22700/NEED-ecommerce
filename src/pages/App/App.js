@@ -19,7 +19,7 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components here */}
-            <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/orders/shop" element={<NewOrderPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
           </Routes>
         </>
