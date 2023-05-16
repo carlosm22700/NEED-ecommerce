@@ -9,7 +9,7 @@ function NewOrderPage() {
   useEffect(() => {
     async function fetchData() {
       const fetchedProducts = await getProducts();
-      setProducts(fetchedProducts.slice(0, 6));
+      setProducts(fetchedProducts.slice(0, 9));
     }
 
     fetchData();
