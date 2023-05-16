@@ -16,7 +16,7 @@ const StyledCardMedia = styled(CardMedia)({
   height: 200,
 });
 
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart }) {
   return (
     <StyledCard>
       <StyledCardMedia image={product.thumbnail} title={product.title} />
@@ -28,7 +28,9 @@ function ProductCard({ product }) {
           {product.description}
         </Typography>
         <Typography variant="body1">{product.price}</Typography>
-        <Button variant="outlined">Add To Cart</Button>
+        <Button variant="outlined" onClick={() => addToCart(product)}>
+          Add To Cart
+        </Button>
       </CardContent>
     </StyledCard>
   );

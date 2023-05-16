@@ -3,7 +3,7 @@ import { getProducts } from "../../utilities/products-service";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { Grid, Container } from "@mui/material";
 
-function NewOrderPage() {
+function NewOrderPage({ addToCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function NewOrderPage() {
       >
         {products.map((product) => (
           <Grid item xs={12} sm={6} md={4} key={product.id}>
-            <ProductCard product={product} />
+            <ProductCard product={product} addToCart={addToCart} />
           </Grid>
         ))}
       </Grid>
