@@ -5,6 +5,7 @@ import {
   Typography,
   CardMedia,
   Button,
+  Box,
 } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -21,16 +22,20 @@ function ProductCard({ product, addToCart }) {
     <StyledCard>
       <StyledCardMedia image={product.thumbnail} title={product.title} />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {product.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {product.description}
-        </Typography>
-        <Typography variant="body1">{product.price}</Typography>
-        <Button variant="outlined" onClick={() => addToCart(product)}>
-          Add To Cart
-        </Button>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Typography gutterBottom variant="h5" component="div" mb={1}>
+            {product.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" mb={1}>
+            {product.description}
+          </Typography>
+          <Typography variant="body1" mb={2}>
+            {product.price}
+          </Typography>
+          <Button variant="outlined" onClick={() => addToCart(product)}>
+            Add To Cart
+          </Button>
+        </Box>
       </CardContent>
     </StyledCard>
   );

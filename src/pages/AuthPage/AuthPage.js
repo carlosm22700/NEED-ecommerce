@@ -5,18 +5,12 @@ import { Button, Typography, Box, Grid, Paper } from "@mui/material";
 import { styled } from "@mui/system";
 
 const StyledButton = styled(Button)({
-  border: 0,
-  borderRadius: "50%",
-  backgroundColor: "#ff6347",
-  border: "0.6vmin solid #d2b48c",
-  color: "#f5deb3",
-  display: "flex",
-  flexDirection: "column",
-  fontSize: "2.7vmin",
-  height: "12vmin",
-  width: "12vmin",
-  justifyContent: "center",
-  alignItems: "center",
+  backgroundColor: "#3f51b5",
+  color: "white",
+  padding: "1em 2em",
+  "&:hover": {
+    backgroundColor: "#303f9f",
+  },
 });
 
 const StyledPaper = styled(Paper)({
@@ -44,13 +38,9 @@ export default function AuthPage({ setUser }) {
       >
         <Box textAlign="center">
           <StyledButton onClick={() => setShowLoginForm(!showLoginForm)}>
-            TechMart
+            {showLoginForm ? "Sign Up" : "Log In"}
           </StyledButton>
-          <Typography
-            variant="h5"
-            gutterBottom
-            style={{ marginTop: "4vmin", color: "#f5deb3" }}
-          >
+          <Typography variant="h5" gutterBottom style={{ marginTop: "4vmin" }}>
             {showLoginForm ? "Log In" : "Sign Up"}
           </Typography>
           <Button

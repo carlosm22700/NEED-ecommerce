@@ -3,11 +3,14 @@ import { Container, Typography, Box, Button } from "@mui/material";
 
 function CartPage({ cart, removeFromCart }) {
   const total = cart.reduce((total, product) => total + product.price, 0);
+
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>
-        Your Shopping Cart
-      </Typography>
+      <Box textAlign="center" marginTop={4}>
+        <Typography variant="h4" gutterBottom>
+          Your Shopping Cart
+        </Typography>
+      </Box>
       {cart.length === 0 ? (
         <Typography variant="h6">No items in cart</Typography>
       ) : (
