@@ -10,6 +10,7 @@ import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import CartPage from "../CartPage/CartPage";
 import WelcomePage from "../../components/WelcomePage/WelcomePage";
+import CheckoutPage from "../CheckoutPage/CheckoutPage";
 
 import { getUser } from "../../utilities/users-service";
 
@@ -61,6 +62,7 @@ function App() {
                   <CartPage cart={cart} removeFromCart={removeFromCart} />
                 }
               />
+              <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
             </Routes>
           </>
         ) : (
