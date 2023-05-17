@@ -1,5 +1,3 @@
-// src/components/CartItem/CartItem.js
-
 import React from "react";
 import {
   Card,
