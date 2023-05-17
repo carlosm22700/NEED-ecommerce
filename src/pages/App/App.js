@@ -9,6 +9,7 @@ import AuthPage from "../AuthPage/AuthPage";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import CartPage from "../CartPage/CartPage";
+import WelcomePage from "../../components/WelcomePage/WelcomePage";
 
 import { getUser } from "../../utilities/users-service";
 
@@ -48,6 +49,7 @@ function App() {
               toggleDarkMode={toggleDarkMode}
             />
             <Routes>
+              <Route path="/" element={<WelcomePage />} />
               <Route
                 path="/orders/shop"
                 element={<NewOrderPage addToCart={addToCart} />}
