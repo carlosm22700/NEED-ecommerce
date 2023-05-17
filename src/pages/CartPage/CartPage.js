@@ -2,8 +2,11 @@ import CartItem from "../../components/CartItem/CartItem";
 import { Container, Typography, Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-function CartPage({ cart, removeFromCart }) {
-  const total = cart.reduce((total, product) => total + product.price, 0);
+function CartPage({ cart, removeFromCart, updateQuantity }) {
+  const total = cart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
   const navigate = useNavigate();
 
   const handleCheckout = () => {
@@ -25,6 +28,7 @@ function CartPage({ cart, removeFromCart }) {
             key={index}
             product={product}
             removeFromCart={removeFromCart}
+            updateQuantity={updateQuantity}
           />
         ))
       )}

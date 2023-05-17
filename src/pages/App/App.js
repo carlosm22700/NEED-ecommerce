@@ -26,11 +26,41 @@ function App() {
   });
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    const existingProduct = cart.find((p) => p.id === product.id);
+
+    if (existingProduct) {
+      // Increase quantity
+      const updatedCart = cart.map((p) =>
+        p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+      );
+      setCart(updatedCart);
+    } else {
+      // Add new product
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
   };
 
   const removeFromCart = (productId) => {
-    setCart(cart.filter((product) => product.id !== productId));
+    const existingProduct = cart.find((p) => p.id === productId);
+
+    if (existingProduct.quantity > 1) {
+      // Decrease quantity
+      const updatedCart = cart.map((p) =>
+        p.id === productId ? { ...p, quantity: p.quantity - 1 } : p
+      );
+      setCart(updatedCart);
+    } else {
+      // Remove product
+      setCart(cart.filter((product) => product.id !== productId));
+    }
+  };
+
+  const updateQuantity = (productId, quantity) => {
+    setCart(
+      cart.map((product) =>
+        product.id === productId ? { ...product, quantity } : product
+      )
+    );
   };
 
   const toggleDarkMode = () => {
@@ -59,7 +89,11 @@ function App() {
               <Route
                 path="/cart"
                 element={
-                  <CartPage cart={cart} removeFromCart={removeFromCart} />
+                  <CartPage
+                    cart={cart}
+                    removeFromCart={removeFromCart}
+                    updateQuantity={updateQuantity}
+                  />
                 }
               />
               <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
