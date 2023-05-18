@@ -24,7 +24,7 @@ function CheckoutPage({ cart, total }) {
         Your order number is {orderNumber}
       </Typography>
       <Typography variant="body1" gutterBottom>
-        You will receive an order summary and delivery details through email.
+        You will receive an order summary through email
       </Typography>
       <List>
         {cart.map((product, index) => (

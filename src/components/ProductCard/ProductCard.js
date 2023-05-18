@@ -96,7 +96,7 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
   top: "10px",
   right: "10px",
   backgroundColor: theme.palette.common.white,
-  opacity: "0.7",
+  opacity: ".8",
   "&:hover": {
     backgroundColor: theme.palette.common.white,
   },

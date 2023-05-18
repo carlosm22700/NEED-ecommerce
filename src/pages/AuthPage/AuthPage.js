@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Button, Typography, Box, Grid, Paper } from "@mui/material";
+import {
+  Button,
+  Typography,
+  Box,
+  Grid,
+  Paper,
+  Container,
+  Avatar,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -39,6 +47,24 @@ export default function AuthPage({ setUser }) {
 
   return (
     <Grid container spacing={2} style={{ minHeight: "100vh" }}>
+      <Grid
+        item
+        xs={12}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Container
+          maxWidth="xs"
+          sx={{ textAlign: "center", marginBottom: "3vh" }}
+        >
+          <Avatar
+            alt="Logo"
+            src="/need.png"
+            sx={{ width: "250px", height: "250px", margin: "auto" }}
+          />
+        </Container>
+      </Grid>
       <Grid
         item
         xs={12}
