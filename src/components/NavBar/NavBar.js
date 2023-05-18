@@ -27,7 +27,7 @@ export default function NavBar({ user, setUser, darkMode, toggleDarkMode }) {
             to="/orders/shop"
             sx={{ marginRight: 2 }}
           >
-            <Avatar alt="Logo" src="/TechMart-logos_transparent.png" />
+            <Avatar alt="Logo" src="/need.png" />
           </Button>
           <IconButton
             edge="start"

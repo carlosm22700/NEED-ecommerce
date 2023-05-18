@@ -1,6 +1,15 @@
 import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
-import { TextField, Button, Typography, Box } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Typography,
+  Box,
+  IconButton,
+  InputAdornment,
+} from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 export default class SignUpForm extends Component {
   state = {
@@ -9,6 +18,8 @@ export default class SignUpForm extends Component {
     password: "",
     confirm: "",
     error: "",
+    showPassword: false,
+    showConfirm: false,
   };
 
   handleChange = (evt) => {
@@ -24,6 +35,8 @@ export default class SignUpForm extends Component {
       const formData = { ...this.state };
       delete formData.confirm;
       delete formData.error;
+      delete formData.showPassword;
+      delete formData.showConfirm;
 
       const user = await signUp(formData);
       this.props.setUser(user);
@@ -65,7 +78,7 @@ export default class SignUpForm extends Component {
         />
         <TextField
           label="Password"
-          type="password"
+          type={this.state.showPassword ? "text" : "password"}
           name="password"
           value={this.state.password}
           onChange={this.handleChange}
@@ -73,10 +86,23 @@ export default class SignUpForm extends Component {
           variant="outlined"
           margin="normal"
           fullWidth
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() =>
+                    this.setState({ showPassword: !this.state.showPassword })
+                  }
+                >
+                  {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <TextField
           label="Confirm"
-          type="password"
+          type={this.state.showConfirm ? "text" : "password"}
           name="confirm"
           value={this.state.confirm}
           onChange={this.handleChange}
@@ -84,6 +110,19 @@ export default class SignUpForm extends Component {
           variant="outlined"
           margin="normal"
           fullWidth
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() =>
+                    this.setState({ showConfirm: !this.state.showConfirm })
+                  }
+                >
+                  {this.state.showConfirm ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Button
           type="submit"

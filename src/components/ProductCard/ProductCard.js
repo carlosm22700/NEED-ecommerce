@@ -124,17 +124,17 @@ function ProductCard({ product, addToCart }) {
       )}
       <CardContent>
         <Box display="flex" flexDirection="column" alignItems="center">
-          <Typography gutterBottom variant="h5" component="div" mb={1}>
+          <Typography gutterBottom variant="h5" component="div" mb={2}>
             {product.title}
           </Typography>
-          <Link to={`/product/${product.id}`}>
-            <Typography variant="body2" color="text.secondary" mb={2}>
-              Details
-            </Typography>
-          </Link>
-          <Typography variant="h6" color="primary" mb={2}>
+          <Typography variant="h5" color="primary" mb={2}>
             ${product.price.toFixed(2)}
           </Typography>
+          <Link to={`/product/${product.id}`}>
+            <Typography variant="body1" color="text.secondary" mb={2}>
+              See More
+            </Typography>
+          </Link>
         </Box>
       </CardContent>
     </StyledCard>

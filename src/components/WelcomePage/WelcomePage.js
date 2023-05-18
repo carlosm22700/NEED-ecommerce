@@ -16,8 +16,11 @@ const WelcomePage = () => {
       alignItems="center"
       height="100vh"
     >
-      <Typography variant="h2" component="h1" gutterBottom>
-        Welcome to TechMart
+      <Typography variant="h1" component="h1" gutterBottom>
+        Welcome to NEED
+      </Typography>
+      <Typography variant="h3" component="h1" gutterBottom>
+        Its In The Name
       </Typography>
       <Button variant="contained" color="primary" onClick={handleShopNow}>
         Shop Now
