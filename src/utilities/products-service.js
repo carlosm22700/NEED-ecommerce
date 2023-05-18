@@ -31,15 +31,15 @@ export async function getCategories() {
 }
 
 export async function getProductById(id) {
-  const url = "https://dummyjson.com/products";
+  // Adjust the URL to use the individual product's endpoint
+  const url = `https://dummyjson.com/products/${id}`;
+
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error("Failed to fetch products");
+    throw new Error("Failed to fetch product");
   }
-  let data = await response.json();
+  const product = await response.json();
 
-  // Find the product with the matching id
-  const product = data.products.find((product) => product.id === Number(id));
   if (!product) {
     throw new Error(`Failed to find product with id ${id}`);
   }
