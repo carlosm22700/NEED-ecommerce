@@ -19,16 +19,32 @@ export default function NavBar({ user, setUser, darkMode, toggleDarkMode }) {
 
   return (
     <AppBar position="static">
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+      <Toolbar sx={{ justifyContent: "space-between", height: "64px" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button
             color="inherit"
             component={RouterLink}
             to="/orders/shop"
-            sx={{ marginRight: 2 }}
+            sx={{
+              marginRight: 2,
+              //adjusts hightlight over NEED logo
+              "&:focus": {
+                outline: "none",
+                boxShadow: "none",
+              },
+            }}
           >
-            <Avatar alt="Logo" src="/TechMart-logos_transparent.png" />
+            <Avatar
+              alt="Logo"
+              src="/need.png"
+              sx={{
+                height: "100px",
+                width: "100px",
+                objectFit: "cover",
+              }}
+            />
           </Button>
+
           <IconButton
             edge="start"
             color="inherit"

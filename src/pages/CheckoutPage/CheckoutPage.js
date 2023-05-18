@@ -1,9 +1,8 @@
 import { Box, Typography, List, ListItem, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-function CheckoutPage({ cart }) {
+function CheckoutPage({ cart, total }) {
   const navigate = useNavigate();
-  const total = cart.reduce((total, product) => total + product.price, 0);
   const orderNumber = Math.floor(Math.random() * 1000000);
 
   const handleGoBack = () => {
@@ -25,7 +24,7 @@ function CheckoutPage({ cart }) {
         Your order number is {orderNumber}
       </Typography>
       <Typography variant="body1" gutterBottom>
-        You will receive an order summary and delivery details through email.
+        You will receive an order summary through email
       </Typography>
       <List>
         {cart.map((product, index) => (
@@ -40,7 +39,7 @@ function CheckoutPage({ cart }) {
         Total: ${total.toFixed(2)}
       </Typography>
       <Button variant="contained" color="primary" onClick={handleGoBack}>
-        Continue Shopping
+        Place New Order
       </Button>
     </Box>
   );
