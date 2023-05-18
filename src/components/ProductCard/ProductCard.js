@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Card,
   CardContent,
@@ -8,6 +7,7 @@ import {
   Box,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const StyledCard = styled(Card)({
   maxWidth: 345,
@@ -26,15 +26,23 @@ function ProductCard({ product, addToCart }) {
           <Typography gutterBottom variant="h5" component="div" mb={1}>
             {product.title}
           </Typography>
-          <Typography variant="body2" color="text.secondary" mb={1}>
-            {product.description}
+          <Link to={`/product/${product.id}`}>
+            <Typography variant="body2" color="text.secondary" mb={2}>
+              Details
+            </Typography>
+          </Link>
+          <Typography variant="h6" color="primary" mb={2}>
+            ${product.price.toFixed(2)}
           </Typography>
-          <Typography variant="body1" mb={2}>
-            {product.price}
-          </Typography>
-          <Button variant="outlined" onClick={() => addToCart(product)}>
+          {/*<Button
+            variant="outlined"
+            onClick={(event) => {
+              event.preventDefault();
+              addToCart(product);
+            }}
+          >
             Add To Cart
-          </Button>
+          </Button>*/}
         </Box>
       </CardContent>
     </StyledCard>

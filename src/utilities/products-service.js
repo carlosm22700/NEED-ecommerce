@@ -1,11 +1,3 @@
-// export async function getProducts(limit = 9, skip = 0, category = "") {
-//   const response = await fetch("https://dummyjson.com/products");
-//   if (!response.ok) throw new Error("Failed to fetch products");
-//   const data = await response.json();
-//   return data.products;
-// }
-
-//utilities/src/product-service.js:
 export async function getProducts(category, limit, skip, searchTerm) {
   let url = "https://dummyjson.com/products";
   if (category) {
@@ -36,4 +28,21 @@ export async function getCategories() {
   if (!response.ok) throw new Error("Failed to fetch categories");
   const data = await response.json();
   return data;
+}
+
+export async function getProductById(id) {
+  const url = "https://dummyjson.com/products";
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Failed to fetch products");
+  }
+  let data = await response.json();
+
+  // Find the product with the matching id
+  const product = data.products.find((product) => product.id === Number(id));
+  if (!product) {
+    throw new Error(`Failed to find product with id ${id}`);
+  }
+
+  return product;
 }
