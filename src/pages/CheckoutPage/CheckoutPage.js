@@ -10,7 +10,7 @@ function CheckoutPage({ cart, total, clearCart }) {
   const orderNumber = Math.floor(Math.random() * 1000000);
 
   const handleGoBack = () => {
-    navigate("/orders/shop");
+    navigate("/shop");
   };
 
   const handleSuccessfulPayment = () => {
