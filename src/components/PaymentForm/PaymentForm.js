@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import { Button, Box, TextField, CircularProgress } from "@mui/material";
+import {
+  Button,
+  Box,
+  TextField,
+  CircularProgress,
+  Typography,
+} from "@mui/material";
 import { useTheme } from "@emotion/react";
 
 const CARD_OPTIONS_LIGHT = {
@@ -110,44 +116,49 @@ const CheckoutForm = ({ onSuccess }) => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      minHeight="100vh"
-    >
-      <form onSubmit={handleSubmit}>
-        <TextField
-          label="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          margin="normal"
-          fullWidth
-        />
-        <TextField
-          label="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          margin="normal"
-          fullWidth
-        />
-        <Box margin="normal" width="100%" maxWidth="500px">
-          <CardElement options={cardOptions} />
-        </Box>
-        <Box marginTop={2}>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            disabled={!stripe || loading}
+    <>
+      <Typography variant="h3" component="h1" marginBottom={2}>
+        Please Make Your Payment:
+      </Typography>
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        padding={2}
+      >
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            margin="normal"
             fullWidth
-          >
-            {loading ? <CircularProgress /> : "Pay"}
-          </Button>
-        </Box>
-      </form>
-    </Box>
+          />
+          <TextField
+            label="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            margin="normal"
+            fullWidth
+          />
+          <Box margin="normal" width="100%" maxWidth="500px">
+            <CardElement options={cardOptions} />
+          </Box>
+          <Box marginTop={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              disabled={!stripe || loading}
+              fullWidth
+            >
+              {loading ? <CircularProgress /> : "Pay"}
+            </Button>
+          </Box>
+        </form>
+      </Box>
+    </>
   );
 };
 

@@ -62,9 +62,6 @@ function CheckoutPage({ cart, total, clearCart }) {
       height="100vh"
       marginTop={4} // Add marginTop
     >
-      <Typography variant="h3" component="h1" gutterBottom>
-        Please make your payment:
-      </Typography>
       <PaymentForm onSuccess={handleSuccessfulPayment} />
     </Box>
   );
