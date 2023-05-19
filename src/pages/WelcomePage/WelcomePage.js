@@ -12,6 +12,19 @@ const StyledBox = styled(Box)({
   height: "100vh",
 });
 
+const GradientText = styled(Typography)(({ theme }) => ({
+  background:
+    theme.palette.mode === "dark"
+      ? `linear-gradient(45deg, #483D8B 30%, #6A5ACD 90%)`
+      : `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  textShadow:
+    theme.palette.mode === "dark"
+      ? "2px 2px 8px rgba(255, 255, 255, 0.3)"
+      : "2px 2px 8px rgba(0, 0, 0, 0.3)",
+}));
+
 const WelcomePage = () => {
   const navigate = useNavigate();
 
@@ -26,22 +39,13 @@ const WelcomePage = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Typography
-        variant="h1"
-        component="h1"
-        gutterBottom
-        style={{ color: "#ffffff", textShadow: "2px 2px 4px #000000" }}
-      >
+      <GradientText variant="h1" component="h1" gutterBottom>
         Welcome to NEED
-      </Typography>
-      <Typography
-        variant="h3"
-        component="h2"
-        gutterBottom
-        style={{ color: "#ffffff", textShadow: "2px 2px 4px #000000" }}
-      >
+      </GradientText>
+
+      <GradientText variant="h3" component="h2" gutterBottom>
         You Need? We Got.
-      </Typography>
+      </GradientText>
       <Button variant="contained" color="primary" onClick={handleShopNow}>
         Shop Now
       </Button>
