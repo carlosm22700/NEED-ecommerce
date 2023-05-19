@@ -1,15 +1,26 @@
+import { useState } from "react"; // Import useState for managing local state
 import { Box, Typography, List, ListItem, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import PaymentForm from "../../components/PaymentForm/PaymentForm";
 
-function CheckoutPage({ cart, total }) {
+function CheckoutPage({ cart, total, clearCart }) {
+  // don't forget to receive clearCart from props
   const navigate = useNavigate();
+  const [paymentSuccessful, setPaymentSuccessful] = useState(false); // Local state to manage payment status
   const orderNumber = Math.floor(Math.random() * 1000000);
 
   const handleGoBack = () => {
     navigate("/orders/shop");
   };
 
-  return (
+  const handleSuccessfulPayment = () => {
+    // Upon successful payment, set paymentSuccessful to true and clear the cart
+    setPaymentSuccessful(true);
+    clearCart();
+  };
+
+  // If payment has not been made yet, show payment form. Otherwise, show confirmation message.
+  return paymentSuccessful ? (
     <Box
       display="flex"
       flexDirection="column"
@@ -41,6 +52,20 @@ function CheckoutPage({ cart, total }) {
       <Button variant="contained" color="primary" onClick={handleGoBack}>
         Place New Order
       </Button>
+    </Box>
+  ) : (
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh"
+      marginTop={4} // Add marginTop
+    >
+      <Typography variant="h3" component="h1" gutterBottom>
+        Please make your payment:
+      </Typography>
+      <PaymentForm onSuccess={handleSuccessfulPayment} />
     </Box>
   );
 }
