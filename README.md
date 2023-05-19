@@ -1,6 +1,7 @@
 # NEED
 
 NEED is your all-inclusive online marketplace built with the goal of answering to any and every need. Our motto is "You Need? We Got.", a testament to our dedication in providing a platform where you can find virtually anything, from little knick-knacks to the most essential doodads.
+Don't be surprised if you find a Thing-a-majig!
 
 ## Technologies Used
 
@@ -9,12 +10,12 @@ NEED is your all-inclusive online marketplace built with the goal of answering t
 - Express.js: for handling server-side logic
 - Mongoose: for modeling application data
 - MongoDB: for data storage
+- DUMMYJSON API: A flexible and customizable API used for generating random JSON data. This tool provides simulated data, mimicking real-world patterns and structures, which is useful for testing and developing our application.
+- Stripe API: An API providing powerful and flexible tools for internet commerce. Stripe's software allows for highly customizable payment flow processes, supporting our online marketplace's need for secure transaction processing.
 
 ## Getting Started
 
-1. [Click here to start shopping.](https://your-url.com/)
-
-Replace "your-url" with the URL where your application is hosted.
+1. [Click here to start shopping.](https://need-829.herokuapp.com/)
 
 ![Homepage](/screenshots/homepage.png?raw=true "Homepage")
 
