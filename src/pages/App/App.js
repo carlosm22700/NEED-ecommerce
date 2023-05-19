@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+// import "@stripe/stripe-js/dist/stripe.css";
 
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
@@ -14,6 +17,10 @@ import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage";
 
 import { getUser } from "../../utilities/users-service";
 
+const stripePromise = loadStripe(
+  "pk_test_51N7ngMDgR2kEi4Rpg3DQUl9dFZ7AwmSZzHdJKv77QPPaZ7WfHHfm4Vy8AYY9q0pkfgR52G5gYh0XkQKaCSVK1zSO00NGomke8H"
+);
+
 function App() {
   const [user, setUser] = useState(getUser());
   const [cart, setCart] = useState([]);
@@ -25,7 +32,6 @@ function App() {
       mode: darkMode ? "dark" : "light",
     },
   });
-
   const addToCart = (product) => {
     const existingProduct = cart.find((p) => p.id === product.id);
 
@@ -75,53 +81,60 @@ function App() {
   const toggleDarkMode = () => {
     setDarkMode((prevDarkMode) => !prevDarkMode);
   };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <main className="App">
-        {user ? (
-          <>
-            <NavBar
-              user={user}
-              setUser={setUser}
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-            <Routes>
-              <Route path="/" element={<WelcomePage />} />
-              <Route
-                path="/orders/shop"
-                element={<NewOrderPage addToCart={addToCart} />}
+      <Elements stripe={stripePromise}>
+        <main className="App">
+          {user ? (
+            <>
+              <NavBar
+                user={user}
+                setUser={setUser}
+                darkMode={darkMode}
+                toggleDarkMode={toggleDarkMode}
               />
-              <Route path="/orders" element={<OrderHistoryPage />} />
-              <Route
-                path="/cart"
-                element={
-                  <CartPage
-                    cart={cart}
-                    removeFromCart={removeFromCart}
-                    updateQuantity={updateQuantity}
-                    clearCart={clearCart}
-                    calculateTotal={calculateTotal}
-                    total={total}
-                  />
-                }
-              />
-              <Route
-                path="/checkout"
-                element={<CheckoutPage cart={cart} total={total} />}
-              />
-              <Route
-                path="/product/:id"
-                element={<ProductDetailsPage addToCart={addToCart} />}
-              />
-            </Routes>
-          </>
-        ) : (
-          <AuthPage setUser={setUser} />
-        )}
-      </main>
+              <Routes>
+                <Route path="/" element={<WelcomePage />} />
+                <Route
+                  path="/orders/shop"
+                  element={<NewOrderPage addToCart={addToCart} />}
+                />
+                <Route path="/orders" element={<OrderHistoryPage />} />
+                <Route
+                  path="/cart"
+                  element={
+                    <CartPage
+                      cart={cart}
+                      removeFromCart={removeFromCart}
+                      updateQuantity={updateQuantity}
+                      clearCart={clearCart}
+                      calculateTotal={calculateTotal}
+                      total={total}
+                    />
+                  }
+                />
+                <Route
+                  path="/checkout"
+                  element={
+                    <CheckoutPage
+                      cart={cart}
+                      total={total}
+                      clearCart={clearCart}
+                    />
+                  }
+                />
+                <Route
+                  path="/product/:id"
+                  element={<ProductDetailsPage addToCart={addToCart} />}
+                />
+              </Routes>
+            </>
+          ) : (
+            <AuthPage setUser={setUser} />
+          )}
+        </main>
+      </Elements>
     </ThemeProvider>
   );
 }

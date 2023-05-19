@@ -23,6 +23,8 @@ app.use(require("./config/checkToken"));
 
 // Put API routes here, before the "catch all" route
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/payments", require("./routes/api/payments"));
+
 // "catch all route" - used to always serve index.html
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
