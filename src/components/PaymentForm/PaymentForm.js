@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { Button, Box, TextField, CircularProgress } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
-const CARD_OPTIONS = {
+const CARD_OPTIONS_LIGHT = {
   iconStyle: "solid",
   style: {
     base: {
@@ -26,12 +27,39 @@ const CARD_OPTIONS = {
   },
 };
 
+const CARD_OPTIONS_DARK = {
+  iconStyle: "solid",
+  style: {
+    base: {
+      iconColor: "#ffffff",
+      color: "#ffffff",
+      fontWeight: 500,
+      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+      fontSize: "16px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": {
+        color: "#ffffff",
+      },
+      "::placeholder": {
+        color: "#ffffff",
+      },
+    },
+    invalid: {
+      iconColor: "#ffc7ee",
+      color: "#ffc7ee",
+    },
+  },
+};
+
 const CheckoutForm = ({ onSuccess }) => {
   const [loading, setLoading] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+  const theme = useTheme();
+  const darkMode = theme.palette.mode === "dark";
+  const cardOptions = darkMode ? CARD_OPTIONS_DARK : CARD_OPTIONS_LIGHT;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -105,7 +133,7 @@ const CheckoutForm = ({ onSuccess }) => {
           fullWidth
         />
         <Box margin="normal" width="100%" maxWidth="500px">
-          <CardElement options={CARD_OPTIONS} />
+          <CardElement options={cardOptions} />
         </Box>
         <Box marginTop={2}>
           <Button
