@@ -1,8 +1,0 @@
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px; /* Adjust this value to change the space between the items */
-  padding: 20px;
-  margin: auto;
-  max-width: 1200px; /* Set this to the maximum width you want for your grid */
-}
