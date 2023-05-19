@@ -54,8 +54,8 @@ Don't be surprised if you find a Thing-a-majig!
 
 ## ICEBOX FEATURES
 
--Implement counter over cart icon for better UX
--Option to review Purchase History for each user
--Option for users to creae and manage wishlist
--Mutiple currency and language support for a global user base
--Customer reviews, and option to add own rating
+- Implement counter over cart icon for better UX
+- Option to review Purchase History for each user
+- Option for users to creae and manage wishlist
+- Mutiple currency and language support for a global user base
+- Customer reviews, and option to add own rating
