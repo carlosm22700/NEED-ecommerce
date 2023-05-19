@@ -20,6 +20,7 @@ Don't be surprised if you find a Thing-a-majig!
 2. [Take a look at my Trello Board.](https://trello.com/invite/b/MNG8aitm/ATTIcdd611331e8a1265ed5a70a0ad7c371b2816D972/project3-planning)
 
 ![AuthPage](/screenshots/Authpage.png?raw=true "AuthPage")
+![AuthPageDark](/screenshots/LoginDark.png?raw=true "AuthPageDark")
 
 3. To access NEED, you must first SignUp if its your first time visiting. Otherwise, enter credentials to sign up.
 
