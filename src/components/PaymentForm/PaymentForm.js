@@ -84,28 +84,24 @@ const CheckoutForm = ({ onSuccess }) => {
     });
 
     if (error) {
-      console.log(error);
       setLoading(false);
       return;
     }
 
     if (!error) {
-      console.log("Stripe 23 | paymentMethod", paymentMethod);
-      // Next step here is to send the `paymentMethod.id` to your server to process the charge
-
+      //send the `paymentMethod.id` to your server to process the charge
       const response = await fetch("/api/payments/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           paymentMethodId: paymentMethod.id,
-          amount: 1000, // replace with the actual amount
+          amount: 1000,
         }),
       });
 
       const transactionResult = await response.json();
 
       if (transactionResult.error) {
-        console.log(transactionResult.error);
         setLoading(false);
         return;
       }
