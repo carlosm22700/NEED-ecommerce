@@ -48,7 +48,7 @@ Don't be surprised if you find a Thing-a-majig!
 8. When you are done shopping, proceed to checkout. Complete the payment process to place your order.
 
 ![Confirmation](/screenshots/Confirmation.png?raw=true "Confirmation")
-![ConfirmationDark](/screenshots/ConfimationDark.png?raw=true "ConfirmationDark")
+![ConfirmationDark](/screenshots/ConfirmationDark.png?raw=true "ConfirmationDark")
 
 9. Look over your order confirmation and enjoy your items delivered right to your doorstep!
 
