@@ -16,7 +16,7 @@ const WelcomePage = () => {
   const navigate = useNavigate();
 
   const handleShopNow = () => {
-    navigate("/orders/shop");
+    navigate("/shop");
   };
 
   return (

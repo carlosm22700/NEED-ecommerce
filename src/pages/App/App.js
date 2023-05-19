@@ -4,12 +4,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-// import "@stripe/stripe-js/dist/stripe.css";
 
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
-import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import CartPage from "../CartPage/CartPage";
 import WelcomePage from "../../components/WelcomePage/WelcomePage";
 import CheckoutPage from "../CheckoutPage/CheckoutPage";
@@ -97,10 +95,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<WelcomePage />} />
                 <Route
-                  path="/orders/shop"
+                  path="/shop"
                   element={<NewOrderPage addToCart={addToCart} />}
                 />
-                <Route path="/orders" element={<OrderHistoryPage />} />
                 <Route
                   path="/cart"
                   element={

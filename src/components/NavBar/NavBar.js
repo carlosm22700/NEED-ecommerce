@@ -24,7 +24,7 @@ export default function NavBar({ user, setUser, darkMode, toggleDarkMode }) {
           <Button
             color="inherit"
             component={RouterLink}
-            to="/orders/shop"
+            to="/shop"
             sx={{
               marginRight: 2,
               //adjusts hightlight over NEED logo
