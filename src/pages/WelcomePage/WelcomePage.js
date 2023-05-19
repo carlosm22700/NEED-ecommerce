@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../LandingPageImg/landing.jpg"; // assuming you have an image in your project folder
+import backgroundImage from "./landing.jpg";
 
 const StyledBox = styled(Box)({
   backgroundImage: `url(${backgroundImage})`,
@@ -40,7 +40,7 @@ const WelcomePage = () => {
         gutterBottom
         style={{ color: "#ffffff", textShadow: "2px 2px 4px #000000" }}
       >
-        Its In The Name
+        You Need? We Got.
       </Typography>
       <Button variant="contained" color="primary" onClick={handleShopNow}>
         Shop Now

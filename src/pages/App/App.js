@@ -9,7 +9,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import CartPage from "../CartPage/CartPage";
-import WelcomePage from "../../components/WelcomePage/WelcomePage";
+import WelcomePage from "../WelcomePage/WelcomePage";
 import CheckoutPage from "../CheckoutPage/CheckoutPage";
 import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage";
 
