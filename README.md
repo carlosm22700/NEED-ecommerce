@@ -60,3 +60,34 @@ Don't be surprised if you find a Thing-a-majig!
 - Option for users to creae and manage wishlist
 - Mutiple currency and language support for a global user base
 - Customer reviews, and option to add own rating
+
+## Contribution Guidelines
+
+Thank you for considering contributing to our project! I appreciate any contributions that can improve the project, fix bugs, or add new features. Please follow the guidelines below for a smooth collaboration process.
+
+### Bug Reports and Feature Requests
+
+If you encounter a bug or have a feature request, please open an issue on our GitHub repository. Provide detailed information about the problem or the requested feature, including steps to reproduce the issue if applicable.
+
+### Pull Requests
+
+I welcome pull requests for bug fixes, improvements, or new features. To contribute code to the project, follow these steps:
+
+1. Fork the repository and create your branch from `main`.
+2. Ensure your code follows the project's coding conventions and style guide.
+3. Include tests to ensure the correctness of your changes.
+4. Make sure your code passes all existing tests.
+5. Write clear and concise commit messages.
+6. Submit a pull request to the `main` branch.
+
+I will review your pull request promptly.
+
+### Code Style and Conventions
+
+To maintain a consistent codebase, please adhere to the following code style and conventions:
+
+- Follow the styling for the project.
+- Use meaningful and descriptive variable and function names.
+- Write clear and concise comments
+
+I appreciate your contributions in making this project better!
